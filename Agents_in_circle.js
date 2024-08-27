@@ -9,17 +9,20 @@ const canvasSketch = require('canvas-sketch');
 const random = require("canvas-sketch-util/random")
 const math = require("canvas-sketch-util/math")
 
+//this is why we are using canvas-sketch: it is way easier to animate
 const settings = {
   dimensions: [ 1080, 1080 ],
   animate: true
 };
 
 const sketch = ({context, width, height}) => {
+  
+  // we will spawn the agents in a manner such that it will be easy to change the amount of them
   const agents = [];
   const num_agents = 50;
 
   const ring_radius = 500;
-
+ // we spawn them within the radius of the circle
   for (i = 0; i < num_agents; i++) {
 
     const x = random.range(1/6 * width, 5/6 *width);
@@ -32,6 +35,7 @@ const sketch = ({context, width, height}) => {
   return ({ context, width, height }) => {
     
     context.save();
+    // this creates a simple radial gradient. It will act as the edge of the ring. I will add a texture to the gardient later 
     
     const grd = context.createRadialGradient(width/2, height/2, ring_radius - 25 ,width/2, height/2, ring_radius + 25);
     grd.addColorStop(0, "#000000")
@@ -54,11 +58,12 @@ const sketch = ({context, width, height}) => {
     context.lineWidth = 10
     context.arc(0,0,ring_radius,0,2*Math.PI)
   
-    //context.stroke();
     
         
     context.restore();
 
+  // this draws a line between all agents that are close enough together. Further, the closer the agents 
+    
     for (i =0; i< agents.length; i++){
       const agent = agents[i];
 
@@ -81,7 +86,7 @@ const sketch = ({context, width, height}) => {
         context.restore();
       }
     }
-
+// this updates the postion of each agent and checks to see if there is contact between agent and the ring
     agents.forEach(agent =>{
       agent.update();
       agent.draw(context);
