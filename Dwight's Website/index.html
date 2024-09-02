@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "style.css">
+    <title>Dwight_website_test</title>
+</head>
+<body>
+    <section class= "showcase">
+        <header>
+        <h2 class="logo">Dwight_Website_Test </h2>
+        <div class="toggle"></div>
+        </header>
+
+       <video src="The Wild World Itself (TRAILER).mp4" muted loop autoplay></video> 
+        <div class="overlay"></div>
+
+        <div class="text active">
+            <h2>Dwight Petrovic</h2>
+            <h3 >Director, Editor, Writer, Actor</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quibusdam voluptatum cum ad ipsam! Repudiandae inventore magnam eos quos accusantium!</p>
+            <a href="#">Enter</a>
+        </div>
+
+        <ul class="social">
+            <li><a href="https://www.instagram.com/dwightpetrovic/"><img src="icons8-instagram-50.png" alt= ""></a></li>
+            <li><a href="https://letterboxd.com/dwightpetrovic/"><img src="icons8-letterboxd-48.png" alt= ""></a></li>
+            <li><a href="https://www.youtube.com/@dwightpetrovic8648"><img src="icons8-youtube-50-good.png"></a></li>
+        </ul>
+
+    </section>
+
+    <div class = "menu">
+      <ul>
+        <li><a href="#">Project_1</a></li>
+        <li><a href="#">Project_2</a></li>
+        <li><a href="#">Project_3</a></li>
+        <li><a href="#">Project_4</a></li>
+        
+      </ul>  
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.toggle');
+        const textToggle = document.querySelector('.text');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            textToggle.classList.toggle("active");
+
+        });
+    </script>
+</body>
+</html>
